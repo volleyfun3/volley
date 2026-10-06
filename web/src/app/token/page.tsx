@@ -186,7 +186,7 @@ function Graduation({ t, ethUsd }: { t: Token; ethUsd: number }) {
         <div className="flex justify-between"><dt className="text-dim">Total volume</dt><dd>{fmtValue(t.volumeEth, ethUsd)}</dd></div>
         <div className="flex justify-between"><dt className="text-dim">Trades</dt><dd>{t.trades}</dd></div>
         <div className="flex justify-between"><dt className="text-dim">Creator rewards</dt><dd>{t.creatorRewards ? "on (0.25%)" : "off"}</dd></div>
-        <div className="flex justify-between"><dt className="text-dim">LP</dt><dd className="text-up">locked forever</dd></div>
+        <div className="flex justify-between"><dt className="text-dim">LP</dt><dd className="text-accent">locked forever</dd></div>
       </dl>
     </div>
   );

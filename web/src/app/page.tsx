@@ -37,7 +37,7 @@ export default function Home() {
           <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">
             Launch a token in one tx.
             <br />
-            <span className="text-accent">Liquidity from block one.</span>
+            <span className="text-gradient">Liquidity from block one.</span>
           </h1>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
             Every {BRAND} token gets a fixed supply, a v4 pool seeded with 100% of tokens, permanently locked liquidity and a

@@ -146,7 +146,7 @@ export function TradePanel({ token }: { token: Token }) {
               setMsg(null);
             }}
             className={`h-9 rounded-lg text-sm font-semibold capitalize transition-colors ${
-              side === s ? (s === "buy" ? "bg-up text-accent-ink" : "bg-down text-white") : "text-muted hover:text-fg"
+              side === s ? (s === "buy" ? "bg-accent text-accent-ink" : "bg-down text-white") : "text-muted hover:text-fg"
             }`}
           >
             {s}
@@ -208,7 +208,7 @@ export function TradePanel({ token }: { token: Token }) {
         onClick={submit}
         disabled={!DEPLOYED || amountIn === 0n || !!busy || insufficient || (quote.isError && !!address)}
         className={`mt-4 h-11 w-full rounded-xl text-sm font-semibold transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50 ${
-          side === "buy" ? "bg-up text-accent-ink" : "bg-down text-white"
+          side === "buy" ? "bg-accent text-accent-ink" : "bg-down text-white"
         }`}
       >
         {busy ??

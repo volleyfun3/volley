@@ -28,17 +28,17 @@ export function PriceChart({ token, ethUsd }: { token: string; ethUsd: number })
     if (!el.current) return;
     const c = createChart(el.current, {
       autoSize: true,
-      layout: { background: { type: ColorType.Solid, color: "transparent" }, textColor: "#7f8c88", fontFamily: "var(--font-geist-mono)", attributionLogo: false },
-      grid: { vertLines: { color: "#111716" }, horzLines: { color: "#111716" } },
-      rightPriceScale: { borderColor: "#1b2321" },
-      timeScale: { borderColor: "#1b2321", timeVisible: true, secondsVisible: false },
-      crosshair: { vertLine: { color: "#26302d" }, horzLine: { color: "#26302d" } },
+      layout: { background: { type: ColorType.Solid, color: "transparent" }, textColor: "#8b90b8", fontFamily: "var(--font-geist-mono)", attributionLogo: false },
+      grid: { vertLines: { color: "#13162e" }, horzLines: { color: "#13162e" } },
+      rightPriceScale: { borderColor: "#1e2240" },
+      timeScale: { borderColor: "#1e2240", timeVisible: true, secondsVisible: false },
+      crosshair: { vertLine: { color: "#2a2f55" }, horzLine: { color: "#2a2f55" } },
     });
     candles.current = c.addSeries(CandlestickSeries, {
-      upColor: "#3cf0a0", downColor: "#ff5c74", borderVisible: false, wickUpColor: "#3cf0a0", wickDownColor: "#ff5c74",
+      upColor: "#2ee6a6", downColor: "#ff5c7a", borderVisible: false, wickUpColor: "#2ee6a6", wickDownColor: "#ff5c7a",
       priceFormat: { type: "custom", minMove: 1e-15, formatter: (p: number) => fmtPrice(p) },
     });
-    volume.current = c.addSeries(HistogramSeries, { priceScaleId: "vol", priceFormat: { type: "volume" }, color: "#3cf0a033" });
+    volume.current = c.addSeries(HistogramSeries, { priceScaleId: "vol", priceFormat: { type: "volume" }, color: "#2ee6a633" });
     c.priceScale("vol").applyOptions({ scaleMargins: { top: 0.82, bottom: 0 } });
     chart.current = c;
     return () => c.remove();
@@ -51,7 +51,7 @@ export function PriceChart({ token, ethUsd }: { token: string; ethUsd: number })
       data.candles.map((c) => ({ time: c.time as UTCTimestamp, open: c.open * k, high: c.high * k, low: c.low * k, close: c.close * k })),
     );
     volume.current.setData(
-      data.candles.map((c) => ({ time: c.time as UTCTimestamp, value: c.volume * k, color: c.close >= c.open ? "#3cf0a033" : "#ff5c7433" })),
+      data.candles.map((c) => ({ time: c.time as UTCTimestamp, value: c.volume * k, color: c.close >= c.open ? "#2ee6a633" : "#ff5c7a33" })),
     );
     const key = `${token}:${res}:${showUsd}`;
     if (fitted.current !== key) {

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: "Fair-launch tokens on Robinhood Chain with instant Uniswap v4 liquidity, burned LP and creator rewards.",
 };
 
-export const viewport: Viewport = { themeColor: "#060807", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#070816", width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
