@@ -92,9 +92,9 @@ export default function Home() {
         />
       </div>
 
-      {error ? (
+      {error && DEPLOYED ? (
         <p className="py-16 text-center text-sm text-down">Couldn&apos;t load tokens: {String((error as Error).message)}</p>
-      ) : isLoading ? (
+      ) : isLoading && DEPLOYED ? (
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: 8 }).map((_, i) => (
             <div key={i} className="h-48 animate-pulse rounded-2xl border border-line bg-panel" />
