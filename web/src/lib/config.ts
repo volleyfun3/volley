@@ -32,6 +32,10 @@ export const RPC_URL = process.env.NEXT_PUBLIC_RPC_URL || chain.rpcUrls.default.
 export const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? "").replace(/\/$/, "");
 export const EXPLORER = (process.env.NEXT_PUBLIC_EXPLORER || chain.blockExplorers?.default.url || "").replace(/\/$/, "");
 export const BRAND = process.env.NEXT_PUBLIC_BRAND || "Volley";
+export const SOCIALS = {
+  x: process.env.NEXT_PUBLIC_X_URL || "https://x.com/_volleyFun",
+  github: process.env.NEXT_PUBLIC_GITHUB_URL || "",
+};
 
 const zero = "0x0000000000000000000000000000000000000000";
 export const ADDR = {

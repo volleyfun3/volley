@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { BRAND } from "@/lib/config";
 import { Providers } from "./providers";
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Providers>
           <Header />
           <main className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6">{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>

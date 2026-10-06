@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BRAND, chain } from "@/lib/config";
 import { ConnectButton } from "./ConnectButton";
+import { Socials } from "./Socials";
 
 const NAV = [
   { href: "/", label: "Discover" },
@@ -41,6 +42,7 @@ export function Header() {
           ))}
         </nav>
         <div className="ml-auto flex items-center gap-2">
+          <Socials />
           <span className="hidden items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 font-mono text-[11px] text-muted lg:flex">
             <span className={`h-1.5 w-1.5 rounded-full ${chain.testnet ? "bg-warn" : "bg-accent"}`} />
             {chain.name}
