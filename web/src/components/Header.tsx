@@ -13,9 +13,8 @@ const NAV = [
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 32 32" className={className} aria-hidden>
-      <rect width="32" height="32" rx="9" fill="#ccff00" />
-      <path d="M8 9h3.5L16 19.6 20.5 9H24l-6.3 14h-3.4z" fill="#0a0a0a" />
+    <svg viewBox="0 0 28 14" className={className} shapeRendering="crispEdges" aria-hidden>
+      <path fill="#ccff00" d="M19 0h2v1h-2zM19 1h3v1h-3zM1 2h2v1h-2zM6 2h2v1h-2zM19 2h5v1h-5zM2 3h2v1h-2zM7 3h2v1h-2zM19 3h6v1h-6zM3 4h2v1h-2zM8 4h2v1h-2zM19 4h7v1h-7zM4 5h2v1h-2zM9 5h2v1h-2zM19 5h8v1h-8zM4 6h24v1h-24zM4 7h24v1h-24zM4 8h2v1h-2zM9 8h2v1h-2zM19 8h8v1h-8zM3 9h2v1h-2zM8 9h2v1h-2zM19 9h7v1h-7zM2 10h2v1h-2zM7 10h2v1h-2zM19 10h6v1h-6zM1 11h2v1h-2zM6 11h2v1h-2zM19 11h5v1h-5zM19 12h3v1h-3zM19 13h2v1h-2z" />
     </svg>
   );
 }
@@ -27,7 +26,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-line bg-bg/85 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-7xl items-center gap-4 px-4 sm:px-6">
         <Link href="/" className="flex shrink-0 items-center gap-2">
-          <Logo className="h-7 w-7" />
+          <Logo className="h-[18px] w-[36px]" />
           <span className="text-[15px] font-semibold tracking-tight">{BRAND}</span>
         </Link>
         <nav className="hidden items-center gap-1 md:flex">
