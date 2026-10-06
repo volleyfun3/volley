@@ -69,6 +69,9 @@ export class Indexer extends DurableObject<Env> {
       CREATE TABLE IF NOT EXISTS uploads (id TEXT PRIMARY KEY, mime TEXT, data BLOB, created INTEGER);
       CREATE TABLE IF NOT EXISTS metadata (id TEXT PRIMARY KEY, body TEXT, created INTEGER);
     `);
+    try {
+      this.sql.exec("ALTER TABLE tokens ADD COLUMN meta_tries INTEGER DEFAULT 0");
+    } catch {}
   }
 
   private meta(key: string): string | null {
@@ -122,6 +125,28 @@ export class Indexer extends DurableObject<Env> {
       this.setMeta("cursor", String(cursor));
     }
     this.setMeta("head", String(head));
+    await this.retryMetadata();
+  }
+
+  // Metadata hosts can be briefly unreachable when a launch is indexed; retry a few times.
+  private async retryMetadata() {
+    const rows = this.sql
+      .exec(
+        `SELECT address, metadata_uri FROM tokens
+         WHERE metadata_uri != '' AND description IS NULL AND image IS NULL AND meta_tries < 5 LIMIT 5`,
+      )
+      .toArray();
+    for (const r of rows) {
+      const m = await this.resolveMetadata(String(r.metadata_uri));
+      if (m) {
+        this.sql.exec(
+          "UPDATE tokens SET description = ?, image = ?, website = ?, x = ?, telegram = ?, meta_tries = 5 WHERE address = ?",
+          str(m.description), str(m.image), str(m.website), str(m.x), str(m.telegram), r.address,
+        );
+      } else {
+        this.sql.exec("UPDATE tokens SET meta_tries = meta_tries + 1 WHERE address = ?", r.address);
+      }
+    }
   }
 
   private async refreshEthUsd() {
