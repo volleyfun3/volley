@@ -28,11 +28,11 @@ export function PriceChart({ token, ethUsd }: { token: string; ethUsd: number })
     if (!el.current) return;
     const c = createChart(el.current, {
       autoSize: true,
-      layout: { background: { type: ColorType.Solid, color: "transparent" }, textColor: "#8b90b8", fontFamily: "var(--font-geist-mono)", attributionLogo: false },
-      grid: { vertLines: { color: "#13162e" }, horzLines: { color: "#13162e" } },
-      rightPriceScale: { borderColor: "#1e2240" },
-      timeScale: { borderColor: "#1e2240", timeVisible: true, secondsVisible: false },
-      crosshair: { vertLine: { color: "#2a2f55" }, horzLine: { color: "#2a2f55" } },
+      layout: { background: { type: ColorType.Solid, color: "transparent" }, textColor: "#8f8f88", fontFamily: "var(--font-geist-mono)", attributionLogo: false },
+      grid: { vertLines: { color: "#151515" }, horzLines: { color: "#151515" } },
+      rightPriceScale: { borderColor: "#222222" },
+      timeScale: { borderColor: "#222222", timeVisible: true, secondsVisible: false },
+      crosshair: { vertLine: { color: "#2e2e2e" }, horzLine: { color: "#2e2e2e" } },
     });
     candles.current = c.addSeries(CandlestickSeries, {
       upColor: "#2ee6a6", downColor: "#ff5c7a", borderVisible: false, wickUpColor: "#2ee6a6", wickDownColor: "#ff5c7a",

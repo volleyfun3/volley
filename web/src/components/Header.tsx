@@ -14,8 +14,8 @@ const NAV = [
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 32 32" className={className} aria-hidden>
-      <rect width="32" height="32" rx="9" fill="#8b5cf6" />
-      <path d="M8 9h3.5L16 19.6 20.5 9H24l-6.3 14h-3.4z" fill="#ffffff" />
+      <rect width="32" height="32" rx="9" fill="#ccff00" />
+      <path d="M8 9h3.5L16 19.6 20.5 9H24l-6.3 14h-3.4z" fill="#0a0a0a" />
     </svg>
   );
 }

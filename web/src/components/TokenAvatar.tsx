@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-const PALETTE = ["#8b5cf6", "#5cc8ff", "#f5c451", "#ff8a5c", "#c58bff", "#ff5c9d"];
+const PALETTE = ["#ccff00", "#5cc8ff", "#f5c451", "#ff8a5c", "#c58bff", "#ff5c9d"];
 
 export function TokenAvatar({ src, symbol, size = 44, className = "" }: { src?: string | null; symbol: string; size?: number; className?: string }) {
   const color = PALETTE[[...symbol].reduce((a, c) => a + c.charCodeAt(0), 0) % PALETTE.length];
