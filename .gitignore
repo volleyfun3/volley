@@ -1,0 +1,15 @@
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+web/node_modules/
+web/.next/
+web/.open-next/
+web/.wrangler/
+web/.dev.vars
+.env
+.env.*
+api/node_modules/
+api/.wrangler/
+api/.dev.vars
+contracts/deployments/31337.json
+.local/

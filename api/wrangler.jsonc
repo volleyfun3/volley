@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hoodpad-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "durable_objects": {
+    "bindings": [{ "name": "INDEXER", "class_name": "Indexer" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Indexer"] }],
+  "triggers": { "crons": ["* * * * *"] },
+  "observability": { "enabled": true },
+  "vars": {
+    "RPC_URL": "https://rpc.testnet.chain.robinhood.com",
+    "CHAIN_ID": "46630",
+    "FACTORY": "0x0000000000000000000000000000000000000000",
+    "HOOK": "0x0000000000000000000000000000000000000000",
+    "START_BLOCK": "0",
+    "START_TICK": "200200"
+  }
+}
