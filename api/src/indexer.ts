@@ -129,7 +129,7 @@ export class Indexer extends DurableObject<Env> {
     if (Date.now() - at < 60_000) return;
     try {
       const r = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd", {
-        headers: { accept: "application/json", "user-agent": "hoodpad-indexer" },
+        headers: { accept: "application/json", "user-agent": "volley-indexer" },
         signal: AbortSignal.timeout(4000),
       });
       const j = (await r.json()) as { ethereum?: { usd?: number } };

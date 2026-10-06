@@ -15,7 +15,7 @@ export function Logo({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 32 32" className={className} aria-hidden>
       <rect width="32" height="32" rx="9" fill="#3cf0a0" />
-      <path d="M9 23V9h3.2v5.4h7.6V9H23v14h-3.2v-5.6h-7.6V23z" fill="#03140c" />
+      <path d="M8 9h3.5L16 19.6 20.5 9H24l-6.3 14h-3.4z" fill="#03140c" />
     </svg>
   );
 }

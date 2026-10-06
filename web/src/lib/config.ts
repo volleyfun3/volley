@@ -31,7 +31,7 @@ export const chain = [robinhoodTestnet, robinhoodMainnet, localChain].find((c) =
 export const RPC_URL = process.env.NEXT_PUBLIC_RPC_URL || chain.rpcUrls.default.http[0];
 export const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? "").replace(/\/$/, "");
 export const EXPLORER = (process.env.NEXT_PUBLIC_EXPLORER || chain.blockExplorers?.default.url || "").replace(/\/$/, "");
-export const BRAND = process.env.NEXT_PUBLIC_BRAND || "hoodpad";
+export const BRAND = process.env.NEXT_PUBLIC_BRAND || "Volley";
 
 const zero = "0x0000000000000000000000000000000000000000";
 export const ADDR = {

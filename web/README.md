@@ -1,4 +1,4 @@
-# hoodpad web
+# Volley web
 
 Next.js static frontend for the launchpad. Configure via `.env.local` (see `scripts/local-chain.sh`).
 
