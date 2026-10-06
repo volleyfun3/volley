@@ -50,3 +50,4 @@ export const SUPPLY = 1_000_000_000;
 export const GRADUATION = 0.7386;
 export const FEES = { platformBps: 75, creatorBps: 25 };
 export const SNIPE_TAX_BPS = [9900, 2481, 519];
+export const WC_PROJECT_ID = process.env.NEXT_PUBLIC_WC_PROJECT_ID || "";

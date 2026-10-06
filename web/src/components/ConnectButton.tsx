@@ -25,19 +25,43 @@ export function ConnectButton() {
   if (!mounted) return <div className={`${base} w-28 bg-panel-2`} />;
 
   if (!isConnected) {
-    const injected = connectors[0];
+    const go = (i: number) => {
+      setOpen(false);
+      connect({ connector: connectors[i], chainId: chain.id });
+    };
+    const labels: Record<string, string> = { injected: "Browser wallet", walletConnect: "WalletConnect" };
     return (
-      <div className="relative">
+      <div className="relative" ref={ref}>
         <button
           className={`${base} bg-accent text-accent-ink hover:brightness-110 disabled:opacity-60`}
           disabled={isPending}
-          onClick={() => injected && connect({ connector: injected, chainId: chain.id })}
+          onClick={() => (connectors.length > 1 ? setOpen((o) => !o) : connectors[0] && go(0))}
         >
           {isPending ? "Connecting…" : "Connect"}
         </button>
-        {error && (
+        {open && (
+          <div className="absolute right-0 top-11 z-50 w-56 rounded-xl border border-line bg-panel p-1 shadow-2xl">
+            {connectors.map((c, i) => (
+              <button
+                key={c.uid}
+                className="flex w-full flex-col rounded-lg px-3 py-2 text-left hover:bg-panel-2"
+                onClick={() => go(i)}
+              >
+                <span className="text-sm">{labels[c.type] ?? c.name}</span>
+                <span className="text-xs text-muted">
+                  {c.type === "walletConnect" ? "Any mobile wallet app or QR" : "MetaMask, Rabby, in-app browsers"}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
+        {error && !open && (
           <p className="absolute right-0 top-11 z-50 w-64 rounded-lg border border-line bg-panel p-2 text-xs text-down">
-            {/provider not found/i.test(error.message) ? "No browser wallet found. Install MetaMask or Rabby." : errMsg(error)}
+            {/provider not found/i.test(error.message)
+              ? connectors.length > 1
+                ? "No browser wallet found. Use WalletConnect instead."
+                : "No browser wallet found. Install MetaMask or Rabby."
+              : errMsg(error)}
           </p>
         )}
       </div>

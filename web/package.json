@@ -12,6 +12,7 @@
   "dependencies": {
     "@tanstack/react-query": "^5.104.1",
     "@wagmi/core": "^2.22.1",
+    "@walletconnect/ethereum-provider": "^2.21.1",
     "lightweight-charts": "^5.2.1",
     "next": "15.5.27",
     "react": "19.1.0",
